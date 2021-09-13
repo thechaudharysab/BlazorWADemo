@@ -1,0 +1,31 @@
+﻿<h3>CustomUserInfoCard</h3>
+
+<RadzenCard Style="width:100%; height: auto !important; margin-bottom:20px; ">
+    <div class="row">
+        <div class="col-md-6">
+            <RadzenImage Path="https://www.somethinghaute.com/wp-content/uploads/2020/02/Main-image.jpg"
+                         Style="width: 50px; height: 50px; border-radius: 50%;" />
+            <div style="margin-top:20px;">Employee:</div>
+            <b>@(FirstName + " " + LastName)</b>
+            <div style="margin-top:20px;">Company:</div>
+            <b>@CompanyName</b>
+            <br />
+        </div>
+        <div class="col-md-6">
+            <div>Slary:</div>
+            <b>USD @Salary</b>
+            <div style="margin-top:20px">City, Country:</div>
+            <b>@(City + ", " + Country)</b>
+        </div>
+    </div>
+</RadzenCard>
+
+@code {
+
+    [Parameter] public string FirstName { get; set; }
+    [Parameter] public string LastName { get; set; }
+    [Parameter] public string CompanyName { get; set; }
+    [Parameter] public long Salary { get; set; }
+    [Parameter] public string Country { get; set; }
+    [Parameter] public string City { get; set; }
+}
