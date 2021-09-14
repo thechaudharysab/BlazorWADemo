@@ -1,20 +1,22 @@
 ﻿
 @using System.Globalization
 
-<h1>Bar Chart Component</h1>
-<div class="row">
-    <div class="col-md-6 col-sm-12 p-4">
-        <RadzenChart>
-            <RadzenBarSeries Data="@revenue2020" CategoryProperty="Quarter" Title="2020" LineType="LineType.Dashed" ValueProperty="Revenue" />
-            <RadzenBarSeries Data="@revenue2019" CategoryProperty="Quarter" Title="2019" ValueProperty="Revenue" />
-            <RadzenValueAxis Formatter="@FormatAsUSD">
-                <RadzenGridLines Visible="true" />
-                <RadzenAxisTitle Text="Revenue in USD" />
-            </RadzenValueAxis>
-            <RadzenBarOptions Radius="5" />
-        </RadzenChart>
-    </div>
+@*<h1>Bar Chart Component</h1>*@
+@*<div class="row">*@
+    <div class="col-md-12">
+        <RadzenCard Style="height: auto !important; margin-bottom:20px; ">
+            <RadzenChart>
+                <RadzenBarSeries Data="@revenue2020" CategoryProperty="Quarter" Title="2020" LineType="LineType.Dashed" ValueProperty="Revenue" />
+                <RadzenBarSeries Data="@revenue2019" CategoryProperty="Quarter" Title="2019" ValueProperty="Revenue" />
+                <RadzenValueAxis Formatter="@FormatAsUSD">
+                    <RadzenGridLines Visible="true" />
+                    <RadzenAxisTitle Text="Revenue in USD" />
+                </RadzenValueAxis>
+                <RadzenBarOptions Radius="5" />
+            </RadzenChart>
+        </RadzenCard>
 </div>
+@*</div>*@
 @code {
     class DataItem
     {
