@@ -4,12 +4,29 @@
     <NavMenu />
 </div>*@
 
-<div class="main">
-    <div class="top-row px-4">
-        <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
+<div class="main" style="background-color: #F8F8F8;">
+    @*<div class="top-row px-4">
+            <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
+        </div>*@
+    
+    <div class="top-row fixed-top" style="position: relative; left: 0px; top: 0px; z-index: 1; background-color: white; justify-content: space-between; ">
+        <RadzenImage Path="https://1.bp.blogspot.com/-0o1xPYtiUh4/YUDtFL1tVzI/AAAAAAAAJuk/CuGxOu5dTUwREtcfBUAWeSVzMZ1GRfEYACLcBGAsYHQ/s320/Screen%2BShot%2B2021-09-14%2Bat%2B11.41.57%2BPM.png"
+                     Style="width: 50px; height: 50px; border-radius: 50%;" />
+        <RadzenProfileMenu>
+            <Template>
+                <RadzenGravatar Email="user@example.com">
+                </RadzenGravatar>
+            </Template>
+            <ChildContent>
+                <RadzenProfileMenuItem Text="Buttons" Path="buttons" Icon="account_circle"></RadzenProfileMenuItem>
+                <RadzenProfileMenuItem Text="Menu" Path="menu" Icon="line_weight"></RadzenProfileMenuItem>
+                <RadzenProfileMenuItem Text="FileInput" Path="fileinput" Icon="attach_file"></RadzenProfileMenuItem>
+                <RadzenProfileMenuItem Text="Dialog" Path="dialog" Icon="perm_media"></RadzenProfileMenuItem>
+                <RadzenProfileMenuItem Text="Notification" Path="notification" Icon="announcement"></RadzenProfileMenuItem>
+            </ChildContent>
+        </RadzenProfileMenu>
     </div>
-
-    <div class="content px-4">
-        @Body
-    </div>
+            <div class="content px-4">
+                @Body
+            </div>
 </div>

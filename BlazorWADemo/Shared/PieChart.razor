@@ -1,0 +1,38 @@
+﻿<div class="col-md-12">
+    <RadzenCard Style="height: auto !important; margin-bottom:20px; ">
+        <RadzenChart>
+            <RadzenPieSeries Data="@revenue" Title="Revenue" CategoryProperty="Quarter" ValueProperty="Revenue" />
+        </RadzenChart>
+    </RadzenCard>
+</div>
+
+@code {
+    class DataItem
+    {
+        public string Quarter { get; set; }
+        public double Revenue { get; set; }
+    }
+
+    DataItem[] revenue = new DataItem[] {
+        new DataItem
+        {
+            Quarter = "Q1",
+            Revenue = 30000
+        },
+        new DataItem
+        {
+            Quarter = "Q2",
+            Revenue = 40000
+        },
+        new DataItem
+        {
+            Quarter = "Q3",
+            Revenue = 50000
+        },
+        new DataItem
+        {
+            Quarter = "Q4",
+            Revenue = 80000
+        },
+    };
+}
