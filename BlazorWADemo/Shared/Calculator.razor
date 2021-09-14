@@ -1,0 +1,91 @@
+﻿@using System.Collections.Generic;
+
+<h5>Calculator</h5>
+
+<p style="margin-bottom: 5px; font-size: 14px; font-weight: bold">First Number</p>
+<RadzenTextBox MaxLength="5" @oninput=@(args => OnValueChange(args.Value.ToString(), "value1")) Value="@value1" Placeholder="Enter First Number" Name="Value1" />
+
+<p style="margin-top: 10px; margin-bottom: 5px; font-size: 14px; font-weight: bold">Second Number</p>
+<RadzenTextBox MaxLength="5" @oninput=@(args => OnValueChange(args.Value.ToString(), "value2")) Value="@value2" Placeholder="Enter Second Number" Name="Value2" />
+
+<p style="margin-top: 10px; margin-bottom: 5px; font-size: 14px; font-weight: bold">Select Operation</p>
+<RadzenSelectBar @bind-Value=@operations TValue="char" Multiple="false"
+                 Change=@(args => OnOperatorSelection(args, "operation"))>
+    <Items>
+        <RadzenSelectBarItem Text="+" Value="'a'" />
+        <RadzenSelectBarItem Text="-" Value="'s'" />
+        <RadzenSelectBarItem Text="x" Value="'m'" />
+        <RadzenSelectBarItem Text="\" Value="'d'" />
+    </Items>
+</RadzenSelectBar>
+<p style="font-size: 12px; margin-top: 5px;">Selected Operation: @selectedOperator</p>
+<RadzenButton Click=@(args => CalculateClicked()) Text="Calculate" Style="margin-bottom: 20px; margin-top: 20px; width: 150px" />
+<h3>Result: @result</h3>
+
+@code {
+
+    string value1 = "";
+    string value2 = "";
+    string selectedOperator = "Addition";
+    char operations = 'a';
+
+    string result = "";
+
+    void OnValueChange(string value, string name)
+    {
+        var _ = (name == "value1") ? value1 = value : value2 = value;
+    }
+
+    void OnOperatorSelection(char value, string name)
+    {
+        switch (value)
+        {
+            case 'a':
+                operations = 'a';
+                selectedOperator = "Addition";
+                break;
+            case 's':
+                operations = 's';
+                selectedOperator = "Subtraction";
+                break;
+            case 'm':
+                operations = 'm';
+                selectedOperator = "Multiplication";
+                break;
+            case 'd':
+                operations = 'd';
+                selectedOperator = "Division";
+                break;
+            default:
+                selectedOperator = "None Selected";
+                break;
+        }
+    }
+
+    void CalculateClicked()
+    {
+        int v1 = int.Parse(value1);
+        int v2 = int.Parse(value2);
+
+        switch (operations)
+        {
+            case 'a':
+                result = (v1 + v2).ToString();
+                break;
+            case 's':
+                result = (v1 - v2).ToString();
+                break;
+            case 'm':
+                result = (v1 * v2).ToString();
+                break;
+            case 'd':
+                result = (v1 / v2).ToString();
+                break;
+            default:
+                result = "Invalid Result";
+                break;
+        }
+
+    }
+
+}

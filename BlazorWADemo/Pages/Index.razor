@@ -6,8 +6,6 @@
     }
 </style>
 
-
-
     <UserInfoCard FirstName="Chaudhry" LastName="Talha" CompanyName="Nexarise"
                   Salary=5000 City="Lahore" Country="Pakistan" />
 
@@ -15,7 +13,7 @@
         <div class="col-md-6">
             @*<RadzenCard Style="width: auto; margin-right: 10px; height: auto !important; margin-bottom:20px; ">*@
 
-                <RadzenTabs Change="@OnChange" RenderMode="TabRenderMode.Client">
+                <RadzenTabs Change="@OnChange" RenderMode="TabRenderMode.Client" >
                     <Tabs>
                         <RadzenTabsItem Text="BarChart">
                             <BarChart />
@@ -31,8 +29,7 @@
         <div class="col-md-6">
 
             <RadzenCard Style="width: auto; margin-left: 10px; height: auto !important; margin-bottom:20px; ">
-
-                Hello World
+                <Calculator />
             </RadzenCard>
         </div>
     </div>
